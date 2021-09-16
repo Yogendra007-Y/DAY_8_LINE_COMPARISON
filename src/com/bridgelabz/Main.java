@@ -1,67 +1,67 @@
 package com.bridgelabz;
-
-import javax.sound.sampled.Line;
-import java.util.Scanner;
+import java.util.*;
 public class Main {
 
+    int x1, y1, x2, y2, x3, y3, x4, y4;
+    double line1, line2;
+    Scanner scanner = new Scanner(System.in);
 
-    static void compareTo(Double value1, Double value2) {
-        if (value1 == value2) {
-            System.out.println("Both the lines are equal in length.");
-        } else if (value1 > value2) {
-            System.out.println("Line 1 is greater than Line 2");
+    public static void welcome(){
+        System.out.println("......Welcome to Line Comparison Computation Program using OOPS...");
+    }
+    public double lengthOfLine1(){
+        System.out.println("Enter Cartesian Co-ordinatesvfor first line");
+        System.out.print("Enter the value of x1 : ");
+        x1 = scanner.nextInt();
+        System.out.print("Enter the value of x2 : ");
+        x2 = scanner.nextInt();
+        System.out.print("Enter the value of y1 : ");
+        y1 = scanner.nextInt();
+        System.out.print("Enter the value of y2 : ");
+        y2 = scanner.nextInt();
+        line1 = Math.sqrt(Math.pow((x2 - x1), 2)) + Math.pow((y2 - y1), 2);
+        System.out.println("Length of the line1 is : "+line1);
+        return line1;
+    }
+    public double lengthOfLine2(){
+        System.out.println("Enter Cartesian Co-ordinates for second line");
+        System.out.print("Enter the value of x3 : ");
+        x3 = scanner.nextInt();
+        System.out.print("Enter the value of x4 : ");
+        x4 = scanner.nextInt();
+        System.out.print("Enter the value of y3 : ");
+        y3 = scanner.nextInt();
+        System.out.print("Enter the value of y4 : ");
+        y4 = scanner.nextInt();
+        line2 = Math.sqrt(Math.pow((x4 - x3), 2)) + Math.pow((y4 - y3), 2);
+        System.out.println("Length of the line2 is : "+line1);
+        return line2;
+    }
+
+    double line1Length = lengthOfLine1();
+    double line2Length = lengthOfLine2();
+    public void equalsTo() {
+        if (line1Length == line2Length) {
+            System.out.println("The length of both the Lines are Equal");
         } else {
-            System.out.println("Line 2 is greater than Line 1");
+            System.out.println("Calling compareTo method");
+        }
+    }
+
+    public void compareTo() {
+        if (line1Length > line2Length) {
+            System.out.println("The length of Line1 is greater than Line2 ");
+        } else if (line2Length > line1Length){
+            System.out.println("The length of Lines2 is greater than Line1");
+        }else {
+            System.out.println();
         }
     }
 
     public static void main(String[] args) {
-        System.out.println("Welcome to Line Comparison Computation Program");
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter Cartesian Co-ordinates for Line 1 below : ");
-        System.out.print("Enter the value of x1 : ");
-        int x1 = sc.nextInt();
-        System.out.print("Enter the value of x2 : ");
-        int x2 = sc.nextInt();
-        System.out.print("Enter the value of y1 : ");
-        int y1 = sc.nextInt();
-        System.out.print("Enter the value of y2 : ");
-        int y2 = sc.nextInt();
-        double line1 = (Math.sqrt(Math.pow((x2 - x1), 2)) + Math.pow((y2 - y1), 2));
-        System.out.println("Enter Cartesian Co-ordinates for Line 2 below : ");
-        System.out.print("Enter the value of x3 : ");
-        int x3 = sc.nextInt();
-        System.out.print("Enter the value of x4 : ");
-        int x4 = sc.nextInt();
-        System.out.print("Enter the value of y3 : ");
-        int y3 = sc.nextInt();
-        System.out.print("Enter the value of y4 : ");
-        int y4 = sc.nextInt();
-        double line2 = (Math.sqrt(Math.pow((x4 - x3), 2)) + Math.pow((y4 - y3), 2));
-        System.out.println(); // Used for new line
-        System.out.println("Length of the line 1 is : " + (Math.sqrt(Math.pow((x2 - x1), 2)) + Math.pow((y2 - y1), 2)));
-        System.out.println("Length of the line 2 is : " + (Math.sqrt(Math.pow((x4 - x3), 2)) + Math.pow((y4 - y3), 2)));
-
-        System.out.println(); // Used for new line
-        System.out.println("Length of the line 1 is : " + (Math.sqrt(Math.pow((x2 - x1), 2)) + Math.pow((y2 - y1), 2)));
-        System.out.println("Length of the line 2 is : " + (Math.sqrt(Math.pow((x4 - x3), 2)) + Math.pow((y4 - y3), 2)));
-
-        System.out.println(); // Used for new line
-        System.out.println(); // Used for new line or for empty line
-        if (line1 == line2) {
-            System.out.println("Both the lines are equal in length.");
-        } else {
-            System.out.println("Both lines are unequal in length.");
-            System.out.println(); // Used for new line or for empty line
-            if (line1 == line2) {
-                System.out.println("Both the lines are equal in length.");
-            }
-            else
-            {
-                System.out.println("Both lines are unequal in length.");
-            }
-            System.out.println(); // Used for an empty line
-            compareTo(line1, line2);
-        }
+        welcome();
+        Main line = new Main();
+        line.equalsTo();
+        line.compareTo();
     }
 }
